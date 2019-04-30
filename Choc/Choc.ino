@@ -50,18 +50,25 @@ void setup() {
 void loop() {
     // handle IMU
     mpu6050.update();
+    float x = mpu6050.getAccX();
+    float y = mpu6050.getAccY();
+    float z = mpu6050.getAccZ();
     Serial.print("-3 3 ");
     Serial.print(x); Serial.print(" ");
     Serial.print(y); Serial.print(" ");
-    Serial.println(z);
+    Serial.println(z); Serial.print(" ");
     if(abs(x) == 2 && abs(y) == 2 && abs(z) == 2)
+    {
+      Serial.print(wifi_station_get_hostname()); Serial.print(" ");
       Serial.println("choc");
+    }
    
     // handle OSC
     OSCMessage msg("/IMU");
     msg.add(x);
     msg.add(y);
     msg.add(z);
+    msg.add(wifi_station_get_hostname());
     Udp.beginPacket(outIp, outPort);
     msg.send(Udp);
     Udp.endPacket();
