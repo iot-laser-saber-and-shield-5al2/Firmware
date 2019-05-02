@@ -10,9 +10,9 @@ MPU6050 mpu6050(i2c);
 
 
 ////////////////////////////////////////////////////////////////////////////////
-char ssid[] = "Hyde777";                // TODO: your network SSID (name)
-char pass[] = "CestYoyo";             // TODO: your network password
-const IPAddress outIp(192,168,43,252); // TODO: remote IP of your computer
+char ssid[] = "iPhone de Hamza";                // TODO: your network SSID (name)
+char pass[] = "hamzaiwifi";             // TODO: your network password
+const IPAddress outIp(172,20,10,2); // TODO: remote IP of your computer
 ////////////////////////////////////////////////////////////////////////////////
 
 
@@ -53,14 +53,16 @@ void loop() {
     float x = mpu6050.getAccX();
     float y = mpu6050.getAccY();
     float z = mpu6050.getAccZ();
-    Serial.print("-3 3 ");
-    Serial.print(x); Serial.print(" ");
-    Serial.print(y); Serial.print(" ");
-    Serial.println(z); Serial.print(" ");
+    //Serial.print("-3 3 ");
+    //Serial.print(x); Serial.print(" ");
+    //Serial.print(y); Serial.print(" ");
+    //Serial.println(z); Serial.print(" ");
+    //Serial.print(abs(x)+abs(y)+abs(z));
     if(abs(x) == 2 && abs(y) == 2 && abs(z) == 2)
     {
-      Serial.print(wifi_station_get_hostname()); Serial.print(" ");
+      Serial.print(wifi_station_get_hostname()); Serial.print(" ");Serial.print(abs(x)+abs(y)+abs(z));
       Serial.println("choc");
+      
     }
    
     // handle OSC
