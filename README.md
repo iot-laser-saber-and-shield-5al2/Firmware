@@ -9,4 +9,4 @@ For to begin this project or to have more informations, follow this [link](https
 
 ## Project board
 
-Trello link : <https://trello.com/others/others>
+Trello link : <https://trello.com/b/zL0Afcey/iot>
